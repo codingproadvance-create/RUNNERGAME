@@ -10,6 +10,7 @@ import { TutorialModal } from './components/TutorialModal';
 import { SettingsModal } from './components/SettingsModal';
 import { HighScoreModal } from './components/HighScoreModal';
 import { CharacterSelectModal } from './components/CharacterSelectModal';
+import { AndroidApkModal } from './components/AndroidApkModal';
 import { useTouchControls } from './hooks/useTouchControls';
 import { audioManager } from './game/audio';
 import {
@@ -38,7 +39,7 @@ export default function App() {
 
   // Modals & Overlays
   const [activeModal, setActiveModal] = useState<
-    'NONE' | 'HOW_TO_PLAY' | 'SETTINGS' | 'HIGH_SCORES' | 'CHARACTERS'
+    'NONE' | 'HOW_TO_PLAY' | 'SETTINGS' | 'HIGH_SCORES' | 'CHARACTERS' | 'ANDROID_APK'
   >('NONE');
   const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
@@ -202,6 +203,7 @@ export default function App() {
             onSettings={() => setActiveModal('SETTINGS')}
             onHighScores={() => setActiveModal('HIGH_SCORES')}
             onCharacters={() => setActiveModal('CHARACTERS')}
+            onAndroidApk={() => setActiveModal('ANDROID_APK')}
             highScore={savedStats.highScore}
             totalCoins={savedStats.totalCoins}
             selectedSkin={selectedSkin}
@@ -284,6 +286,12 @@ export default function App() {
             totalCoins={savedStats.totalCoins}
             onSkinSelected={handleSkinSelected}
             onRefreshStats={handleRefreshStats}
+            onClose={() => setActiveModal('NONE')}
+          />
+        )}
+
+        {activeModal === 'ANDROID_APK' && (
+          <AndroidApkModal
             onClose={() => setActiveModal('NONE')}
           />
         )}

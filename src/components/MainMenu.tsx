@@ -9,6 +9,7 @@ interface MainMenuProps {
   onSettings: () => void;
   onHighScores: () => void;
   onCharacters: () => void;
+  onAndroidApk: () => void;
   highScore: number;
   totalCoins: number;
   selectedSkin: CharacterSkin;
@@ -22,6 +23,7 @@ export const MainMenu: React.FC<MainMenuProps> = ({
   onSettings,
   onHighScores,
   onCharacters,
+  onAndroidApk,
   highScore,
   totalCoins,
   selectedSkin,
@@ -127,14 +129,24 @@ export const MainMenu: React.FC<MainMenuProps> = ({
           </button>
         </div>
 
-        {/* SETTINGS BUTTON */}
-        <button
-          onClick={() => handleClick(onSettings)}
-          className="h-11 rounded-xl bg-slate-900/60 hover:bg-slate-800/60 active:scale-98 border border-slate-800 flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 text-xs font-semibold tracking-wide uppercase transition-colors"
-        >
-          <SettingsIcon className="w-4 h-4" />
-          SETTINGS
-        </button>
+        {/* ANDROID APP / APK & SETTINGS BUTTONS */}
+        <div className="grid grid-cols-2 gap-2.5">
+          <button
+            onClick={() => handleClick(onAndroidApk)}
+            className="h-11 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 active:scale-98 border border-emerald-500/40 flex items-center justify-center gap-1.5 text-emerald-300 text-xs font-bold tracking-wide uppercase transition-colors"
+          >
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            ANDROID APK
+          </button>
+
+          <button
+            onClick={() => handleClick(onSettings)}
+            className="h-11 rounded-xl bg-slate-900/60 hover:bg-slate-800/60 active:scale-98 border border-slate-800 flex items-center justify-center gap-2 text-slate-400 hover:text-slate-200 text-xs font-semibold tracking-wide uppercase transition-colors"
+          >
+            <SettingsIcon className="w-4 h-4" />
+            SETTINGS
+          </button>
+        </div>
       </div>
     </div>
   );
