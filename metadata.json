@@ -1,0 +1,6 @@
+{
+  "name": "Runner Rush",
+  "description": "Fast-paced mobile-first 3-lane endless runner game. Swipe to jump, slide, dodge obstacles, collect coins, and activate power-ups in an endless city.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
